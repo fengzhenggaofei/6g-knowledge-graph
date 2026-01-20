@@ -128,23 +128,25 @@
          */
         const KNOWLEDGE_BASE = {
             nodes: [
+                //layer1
                 { id: "体验保障", layer: 1, group: "S", desc: "深度识别UE报文业务类型，基站据此实施差异化体验保障。" },
                 { id: "智能节能", layer: 1, group: "S", desc: "在保障覆盖与体验前提下，最小化人工干预，大幅提升整网能效。" },
                 { id: "移动性寻优", layer: 1, group: "S", desc: "实时迁移UE至最优频层与邻区，极致化小区级吞吐率与用户感知。" },
                 { id: "CA分流", layer: 1, group: "S", desc: "动态调整多载波间分流因子，实现频谱资源的最优利用。" },
-                { id: "通感一体化", layer: 1, group: "S", desc: "融合通信与感知波形，提升目标识别准确率并降低虚警率。" },
+                { id: "通感一体化", layer: 1, group: "S", desc: "感知目标识别，提升目标对象识别准确率提升95%；多模感知融合降低感知虚警率到1%。" },
                 { id: "智能运维", layer: 1, group: "S", desc: "基于AI的根因分析，实现网络异常的分钟级定界定位。" },
-                { id: "谱效提升", layer: 1, group: "S", desc: "系统级优化下行谱效与上行吞吐，突破传统物理层极限。" },
-                { id: "网元智能解决方案生成", layer: 1, group: "S", desc: "引入大模型编排能力，大幅缩短新业务上线周期与运维成本。" },
-                
+                { id: "谱效提升", layer: 1, group: "S", desc: "下行谱效提升5%，小区吞吐率提升20%，上行UE流量提升10%。" },
+                { id: "网元智能解决方案生成", layer: 1, group: "S", desc: "引入大模型编排能力，人工运维工时减少90%，新服务上市时间缩短50%。" },
+
+                //layer2
                 { id: "体验保障推理诉求", layer: 2, group: "R", desc: "指标：LSTM结构, 30K参数, 时延<10ms, 并发80Hz。" },
-                { id: "体验保障数据量诉求", layer: 2, group: "R", desc: "指标：10G/s数据流, 每秒2万包, 极低处理抖动。" },
-                { id: "智能节能推理诉求", layer: 2, group: "R", desc: "指标：Delinear结构, 200K参数, 时延50ms, 周期性推理。" },
-                { id: "移动性寻优推理诉求", layer: 2, group: "R", desc: "指标：LSTM, 1M参数, 时延8ms, 高并发处理。" },
+                { id: "体验保障数据量诉求", layer: 2, group: "R", desc: "指标：10G/s数据流, 每秒2万包, 每包小于200Byte，极低处理抖动。" },
+                { id: "智能节能推理诉求", layer: 2, group: "R", desc: "指标：Delinear结构, 200K参数, 时延50ms, 周期性推理(60s一次)。" },
+                { id: "移动性寻优推理诉求", layer: 2, group: "R", desc: "指标：LSTM, 1M参数, 时延8ms, 高并发处理(100)。" },
                 { id: "移动性寻优训练诉求", layer: 2, group: "R", desc: "指标：在线增量训练, 时延30min内完成。" },
                 { id: "移动性寻优优先级策略诉求", layer: 2, group: "R", desc: "指标：支持20级QoS映射，推理任务最高优先级。" },
-                { id: "CA分流推理诉求", layer: 2, group: "R", desc: "指标：FCNN, 3K参数, 时延<5ms, GPU极致加速。" },
-                { id: "通感一体化推理诉求", layer: 2, group: "R", desc: "指标：Yolo/MLP混合结构, 34M参数, 时延640ms。" },
+                { id: "CA分流推理诉求", layer: 2, group: "R", desc: "指标：FCNN, 3K参数, 时延<5ms, GPU极致加速(400/s)。" },
+                { id: "通感一体化推理诉求", layer: 2, group: "R", desc: "指标：Yolo/MLP混合结构, 34M参数, 时延640ms,推理并发度(640ms)。" },
                 { id: "通感一体化数据量诉求", layer: 2, group: "R", desc: "指标：2Gbps 原始采样数据实时透传。" },
                 { id: "智能运维推理诉求", layer: 2, group: "R", desc: "指标：LightGBM, 1M参数, 时延100ms, 专家知识库对齐。" },
                 { id: "谱效提升推理诉求", layer: 2, group: "R", desc: "指标：5层Transformer, 1M参数, 时延100ms。" },
@@ -154,13 +156,32 @@
                 { id: "网元智能解决方案生成AI网关诉求", layer: 2, group: "R", desc: "指标：支持多模型动态路由、Token计费与流量整形。" },
                 { id: "网元智能解决方案生成Agent诉求", layer: 2, group: "R", desc: "指标：具备CoT思维链能力，支持自动化任务编排。" },
                 { id: "网元智能解决方案生成安全隔离诉求", layer: 2, group: "R", desc: "指标：TEE硬件安全环境，确保模型权重与用户数据物理隔离。" },
-                { id: "网元智能解决方案生成图数据库诉求", layer: 2, group: "R", desc: "指标：千万级实体规模，支持多跳关联查询推理。" },
+                { id: "网元智能解决方案生成图数据库诉求", layer: 2, group: "R", desc: "指标：支持多跳关联查询推理。" },
+
+                //layer3
+                { id: "数据传输通道", layer: 3, group: "C", priority: "high", desc: "支持网元内、网元间的高效数据传输通道12Gpbs(<200Byte/包)，与业务数据隔离。优先级：高" },
+                { id: "数据传输总线", layer: 3, group: "C", priority: "medium", desc: "支持高速数据面传输总线。优先级：中" },
+                { id: "小模型生命周期管理", layer: 3, group: "C", priority: "high", desc: "支持小模型生命周期管理（模型下载，模型存储、热更新等）。优先级：高" },
+                { id: "CPU小推理引擎", layer: 3, group: "C", priority: "high", desc: "支持基于CPU的小模型并发推理，大于200Hz。优先级：高" },
+                { id: "小模型加载", layer: 3, group: "C", priority: "high", desc: "支持大于3000+小模型的加载能力，并且可以扩展。优先级：高" },
+                { id: "小模型并发推理", layer: 3, group: "C", priority: "high", desc: "支持同一个小模型的多并发推理能力，10个，并且未来可以扩展。优先级：高" },
+                { id: "小模型任务调度", layer: 3, group: "C", priority: "high", desc: "支持多个小模型模型的任务优先级调度管理。优先级：高" },
+                { id: "小模型在线训练", layer: 3, group: "C", priority: "high", desc: "支持神经网络小模型的在线训练，模型验证和可用性评估。优先级：高" },
+                { id: "小模型增训及评估", layer: 3, group: "C", priority: "high", desc: "支持小模型增训，及可用性评估。优先级：高" },
+                { id: "GPU小推理引擎", layer: 3, group: "C", priority: "high", desc: "支持GPU多个小模型的并发推理, 大于400Hz。优先级：高" },
+                { id: "GPU大模型加载", layer: 3, group: "C", priority: "medium", desc: "支持GPU大模型的加载（QW 4B，8bit量化）。优先级：中" },
+                { id: "大小模型并发推理", layer: 3, group: "C", priority: "low", desc: "支持GPU大模型和小模型的并发推理。优先级：低" },
+                { id: "embeding", layer: 3, group: "C", priority: "medium", desc: "支持embeding模型的部署。优先级：中" },
+                { id: "规则库引擎", layer: 3, group: "C", priority: "high", desc: "支持规则库引擎CLIPS。优先级：高" },
+                { id: "沙箱", layer: 3, group: "C", priority: "high", desc: "支持沙箱环境。优先级：高" },
+                { id: "A2A&MCP", layer: 3, group: "C", priority: "low", desc: "支持A2A、MCP协议。优先级：低" },
+                { id: "图数据库", layer: 3, group: "C", priority: "medium", desc: "支持图数据库。优先级：中" },
+                { id: "AI协议网关", layer: 3, group: "C", priority: "low", desc: "支持AI协议网关。优先级：低" },
+                { id: "Agent框架", layer: 3, group: "C", priority: "medium", desc: "支持网元智能体框架。优先级：中" },
+                { id: "A/B版本", layer: 3, group: "C", priority: "high", desc: "支持模型A/B版本（模型增训/重训后 新模型在生产环境试用，验证新模型的业务提升效果）。优先级：高" },
+                { id: "QoAIS", layer: 3, group: "C", priority: "high", desc: "支持推理任务的确定性时延保障（实时任务时延3ms，近实时任务10ms，一般任务）。优先级：高" },
                 
-                { id: "内生智能架构", layer: 3, group: "C", priority: "high", desc: "AI能力作为协议栈原生逻辑，实现算网协同。优先级：高" },
-                { id: "通感融合空口", layer: 3, group: "C", priority: "high", desc: "统一资源调度框架，兼顾通信速率与感知精度。优先级：高" },
-                { id: "大规模编排能力", layer: 3, group: "C", priority: "medium", desc: "分布式算力调度引擎，支持业务逻辑弹性部署。优先级：中" },
-                { id: "全量数字孪生", layer: 3, group: "C", priority: "low", desc: "实时映射物理网络至虚拟空间，支撑策略仿真。优先级：低" },
-                
+                //layer4
                 { id: "Transformer原生空口", layer: 4, group: "T", desc: "利用Self-Attention重构物理层，解决复杂信道非线性问题。" },
                 { id: "ISAC波形设计", layer: 4, group: "T", desc: "在OFDM基础上优化导频设计，实现通信感知双优。" },
                 { id: "分布式联邦学习", layer: 4, group: "T", desc: "在数据不出站的前提下，协同提升全局模型泛化性。" },
@@ -186,18 +207,24 @@
                     "网元智能解决方案生成图数据库诉求"
                 ]},
                 
-                { source: "体验保障推理诉求", target: "内生智能架构" },
-                { source: "通感一体化推理诉求", target: "通感融合空口" },
-                { source: "智能运维推理诉求", target: "大规模编排能力" },
-                { source: "谱效提升推理诉求", target: "全量数字孪生" },
-                { source: "网元智能解决方案生成Agent诉求", target: "大规模编排能力" },
-                
-                { source: "内生智能架构", target: "Transformer原生空口" },
-                { source: "通感融合空口", target: "ISAC波形设计" },
-                { source: "大规模编排能力", target: "分布式联邦学习" },
-                { source: "全量数字孪生", target: "可编程算力网元" }
-            ]
-        };
+                { source: "体验保障推理诉求", target: ["小模型生命周期管理", "CPU小推理引擎","GPU小推理引擎"] },
+                { source: "体验保障数据量诉求", target: ["数据传输通道", "数据传输总线"] },
+                { source: "智能节能推理诉求", target:  ["小模型生命周期管理", "CPU小推理引擎","GPU小推理引擎"] },
+                { source: "移动性寻优推理诉求", target:  ["数据传输总线", "小模型生命周期管理","CPU小推理引擎","小模型加载","小模型并发推理","小模型任务调度","GPU小推理引擎"] },
+                { source: "移动性寻优训练诉求", target:  ["数据传输总线", "小模型在线训练","小模型增训及评估","A/B版本"] },
+                { source: "移动性寻优优先级策略诉求", target:  ["QoAIS"] },
+                { source: "CA分流推理诉求", target:  ["数据传输总线", "小模型生命周期管理","CPU小推理引擎","小模型加载","小模型并发推理","GPU小推理引擎","QoAIS"] },
+                { source: "通感一体化推理诉求", target:  ["数据传输总线", "小模型加载","小模型并发推理","GPU小推理引擎","大小模型并发推理"] },
+                { source: "通感一体化数据量诉求", target:  ["数据传输通道"] },
+                { source: "智能运维推理诉求", target:  ["数据传输总线", "小模型生命周期管理","CPU小推理引擎","GPU小推理引擎","QoAIS"] },
+                { source: "谱效提升推理诉求", target:  ["数据传输总线", "小模型生命周期管理","CPU小推理引擎","GPU小推理引擎","QoAIS"] },
+                { source: "网元智能解决方案生成推理诉求", target:  ["GPU大模型加载", "大小模型并发推理"] },
+                { source: "网元智能解决方案生成模型诉求", target:  ["embeding"] },
+                { source: "网元智能解决方案生成AI网关诉求", target:  ["A2A&MCP", "AI协议网关"] },
+                { source: "网元智能解决方案生成Agent诉求", target:  ["Agent框架"] },
+                { source: "网元智能解决方案生成安全隔离诉求", target:  ["规则库引擎"] },
+                { source: "网元智能解决方案生成图数据库诉求", target:  ["图数据库"] },
+            ];
 
         /**
          * 数据平铺函数 (First Principles of Data Transformation)
