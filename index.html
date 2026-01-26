@@ -182,10 +182,35 @@
                 { id: "QoAIS", layer: 3, group: "C", priority: "high", desc: "支持推理任务的确定性时延保障（实时任务时延3ms，近实时任务10ms，一般任务）。优先级：高" },
                 
                 //layer4
-                { id: "Transformer原生空口", layer: 4, group: "T", desc: "利用Self-Attention重构物理层，解决复杂信道非线性问题。" },
-                { id: "ISAC波形设计", layer: 4, group: "T", desc: "在OFDM基础上优化导频设计，实现通信感知双优。" },
-                { id: "分布式联邦学习", layer: 4, group: "T", desc: "在数据不出站的前提下，协同提升全局模型泛化性。" },
-                { id: "可编程算力网元", layer: 4, group: "T", desc: "支持逻辑动态定义的异构计算单元，实现软硬件深度解耦。" }
+                { id: "轻量化异构算力资源池化", layer: 4, group: "T", desc: "提供异构计算资源与调度能力，保障高性能推理与传输。" },
+                { id: "轻量化高性能AI内生框架", layer: 4, group: "T", desc: "聚焦智能体运行、任务调度、模型推理、协同计算等。" },
+
+                //layer5
+                { "id": "异构算力管理与调度", "layer": 5, "group": "T", "priority": "high", "desc": "实现GPU/CPU异构算力编排、切片调度，满足支持GPU大模型和小模型的并发推理、支持同一个小模型的多并发推理能力。" },
+                { "id": "容器编排基础设施", "layer": 5, "group": "T", "priority": "medium", "desc": "基于TCF/OCP（服务器场景）、以及LitePaaS（9200专用设备场景）实现容器管理和编排。" },
+                { "id": "Serverless运行时", "layer": 5, "group": "T", "priority": "medium", "desc": "支持Serverless运行时，包括FaaS、BaaS等功能，通过Mecha机甲访问技术组件(数据库、网关、通信、推理框架、日志等）。" },
+                { "id": "Agent沙箱执行环境", "layer": 5, "group": "T", "priority": "high", "desc": "通过进程隔离、容器隔离、安全容器隔离、轻量级虚机MicroVM隔离等方式实现Agent沙箱执行环境，满足支持沙箱环境。" },
+                { "id": "高性能通信协议QUIC", "layer": 5, "group": "T", "priority": "high", "desc": "通过高性能通信协议QUIC实现协同与并行，满足支持网元内、网元间的高效数据传输通道12Gpbs、支持高速数据面传输总线。" },
+                { "id": "分布式并行计算框架Ray", "layer": 5, "group": "T", "priority": "medium", "desc": "通过Ray实现网元内分布式并行计算框架，满足支持分布式并行计算框架（RAY）。" },
+                { "id": "AI运行时", "layer": 5, "group": "T", "priority": "high", "desc": "支持AI运行时，包括基础库、扩展库和算子库，满足支持GPU大模型的加载。" },
+                { "id": "大小模型推理及小模型训练任务调度框架", "layer": 5, "group": "T", "priority": "high", "desc": "实现多模型（包括大/小模型）任务优先级调度服务，对业务应用提供推理用户接口层（pub/sub、rest接口）、多用户管理、安全审计、推理任务调度等。满足支持GPU多个小模型的并发推理、多个小模型任务优先级调度管理、推理任务时延保障。" },
+                { "id": "大小模型推理服务和引擎", "layer": 5, "group": "T", "priority": "high", "desc": "基于Libtorch进行裁剪的小模型推理引擎，实现小模型推理支持CPU/GPU推理。支持大模型推理引擎（GPU），满足支持CPU/GPU小模型并发推理、支持GPU大模型加载推理。" },
+                { "id": "小模型训练框架", "layer": 5, "group": "T", "priority": "high", "desc": "基于平台RSE框架（CPU）、AIH的小模型训练引擎（GPU）实现小模型在网元上的高性能训练，满足支持神经网络小模型的在线训练、支持小模型增训。" },
+                { "id": "Agent框架（含SDK、记忆、工具）", "layer": 5, "group": "T", "priority": "medium", "desc": "通过Agent应用开发SDK，实现智能体Plan（ReActAgent、RAGAgent智能体运行逻辑）、Action、Skill、Memory等功能。实现Agent框架，支持Agent应用快速灵活部署，满足支持网元智能体框架。" },
+                { "id": "Agent-TOOLS（MCP）", "layer": 5, "group": "T", "priority": "low", "desc": "通过MCP协议智能体实现外部能力调用，满足支持MCP协议。" },
+                { "id": "电信级Agent-Mesh（A2A）", "layer": 5, "group": "T", "priority": "low", "desc": "通过A2A协议实现智能体高效协同，实现Agent之间的高性能通信，满足支持A2A协议。" },
+                { "id": "AI协议网关", "layer": 5, "group": "T", "priority": "low", "desc": "支持A2A/MCP等协议网关，满足支持AI协议网关。" },
+                { "id": "工作流框架(BPMN/Dify)", "layer": 5, "group": "T", "priority": "high", "desc": "支持BPMN/Dify工作流引擎基于BPMN和Dify业界通用协议，实现智能体的工作流可编排引擎功能。" },
+                { "id": "规则引擎（Clips）", "layer": 5, "group": "T", "priority": "high", "desc": "支持规则引擎（Clips），满足支持规则库引擎CLIPS。" },
+                { "id": "向量/图数据库", "layer": 5, "group": "T", "priority": "medium", "desc": "基于PG数据库提供嵌入式轻量化向量数据和图数据存储，满足支持图数据库、支持embeding模型的部署。" },
+                { "id": "RAG检索增强生成", "layer": 5, "group": "T", "priority": "medium", "desc": "LiteRAG实现轻量级知识检索增强生成的能力。" },
+                { "id": "模型验证与评估", "layer": 5, "group": "T", "priority": "high", "desc": "模型可用性评估模块，满足支持模型验证和可用性评估、支持小模型增训及可用性评估。" },
+                { "id": "模型部署与管理", "layer": 5, "group": "T", "priority": "high", "desc": "AI模型管理组件，实现大小模型统一管理：下载、部署、激活、卸载、删除、状态管理等。实现模型在线更新、A/B测试，满足支持小模型生命周期管理、支持模型A/B版本。" },
+                { "id": "Agent管理", "layer": 5, "group": "T", "priority": "medium", "desc": "实现Agent运行时管理、AI知识资产管理等功能。" },
+                { "id": "QoAIS管理", "layer": 5, "group": "T", "priority": "medium", "desc": "为了实现以任务为中心的工作流，从AI服务的QoS、AI任务的QoS和AI资源的QoS三个层次实现对AI四要素的编排，包括连接、数据、算力、算法。" },
+                { "id": "AI可观测性", "layer": 5, "group": "T", "priority": "medium", "desc": "AI可观测性使能够对AI服务的状态、性能和资源使用情况进行有效监控和度量，包括模型推理、训练、Agent运行等。" }
+]
+                
             ],
             links: [
                 // 【新特性展示】使用数组一次性配置“一对多”
